@@ -20,7 +20,7 @@ const data = [
   { id: 6, sala: "principal-F", cantidadPersonas: "Yu-Gi-Oh!", nombreDePelicula: "Yu-Gi-Oh!"},
 ];
 
-class crearSala extends React.Component {
+class CrearSala extends React.Component {
   state = {
     data: data,
     modalActualizar: false,
@@ -69,7 +69,7 @@ class crearSala extends React.Component {
 
   eliminar = (dato) => {
     var opcion = window.confirm("Estás Seguro que deseas Eliminar el elemento "+dato.id);
-    if (opcion == true) {
+    if (opcion != "0") {
       var contador = 0;
       var arreglo = this.state.data;
       arreglo.map((registro) => {
@@ -299,4 +299,4 @@ class crearSala extends React.Component {
     );
   }
 }
-export default crearSala;
+export default CrearSala;

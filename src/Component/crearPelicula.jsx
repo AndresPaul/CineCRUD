@@ -20,7 +20,7 @@ const data = [
   { id: 6, pelicula: "Yu-Gi-Oh!", genero: "Suspenso", calificacion: "A", duracion: "2:50:00", fechaEstreno: "12-07-17" },
 ];
 
-class crearPelicula extends React.Component {
+class CrearPelicula extends React.Component {
   state = {
     data: data,
     modalActualizar: false,
@@ -71,7 +71,7 @@ class crearPelicula extends React.Component {
 
   eliminar = (dato) => {
     var opcion = window.confirm("Estás Seguro que deseas Eliminar el elemento "+dato.id);
-    if (opcion == true) {
+    if (opcion != "0") {
       var contador = 0;
       var arreglo = this.state.data;
       arreglo.map((registro) => {
@@ -354,4 +354,4 @@ class crearPelicula extends React.Component {
     );
   }
 }
-export default crearPelicula;
+export default CrearPelicula;
