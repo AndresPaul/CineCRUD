@@ -57,12 +57,13 @@ class CrearSala extends React.Component {
   editar = (dato) => {
     var contador = 0;
     var arreglo = this.state.data;
-    arreglo.map((registro) => {
+    arreglo.forEach((registro) => {
       if (dato.id == registro.id) {
         arreglo[contador].sala = dato.sala;
         arreglo[contador].cantidadPersonas = dato.cantidadPersonas;
       }
       contador++;
+      return 0;
     });
     this.setState({ data: arreglo, modalActualizar: false });
   };
@@ -72,11 +73,12 @@ class CrearSala extends React.Component {
     if (opcion != "0") {
       var contador = 0;
       var arreglo = this.state.data;
-      arreglo.map((registro) => {
+      arreglo.forEach((registro) => {
         if (dato.id == registro.id) {
           arreglo.splice(contador, 1);
         }
         contador++;
+        return 0;
       });
       this.setState({ data: arreglo, modalActualizar: false });
     }

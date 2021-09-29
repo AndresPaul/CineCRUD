@@ -1,4 +1,5 @@
 import React from "react";
+import funciones from "./funciones";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
   Table,
@@ -59,12 +60,13 @@ class CrearPelicula extends React.Component {
   editar = (dato) => {
     var contador = 0;
     var arreglo = this.state.data;
-    arreglo.map((registro) => {
+    arreglo.forEach((registro) => {
       if (dato.id == registro.id) {
         arreglo[contador].pelicula = dato.pelicula;
         arreglo[contador].genero = dato.genero;
       }
       contador++;
+      return 0;
     });
     this.setState({ data: arreglo, modalActualizar: false });
   };
@@ -74,11 +76,12 @@ class CrearPelicula extends React.Component {
     if (opcion != "0") {
       var contador = 0;
       var arreglo = this.state.data;
-      arreglo.map((registro) => {
+      arreglo.forEach((registro) => {
         if (dato.id == registro.id) {
           arreglo.splice(contador, 1);
         }
         contador++;
+        return 0;
       });
       this.setState({ data: arreglo, modalActualizar: false });
     }
@@ -138,7 +141,7 @@ class CrearPelicula extends React.Component {
                   <td>
                     <Button
                       color="primary"
-                      onClick={() => this.mostrarModalActualizar(dato)}
+                      onClick={() => this.mostrarModalActualizar(dato)}                                    
                     >
                       Editar
                     </Button>{" "}
